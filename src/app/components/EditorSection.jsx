@@ -41,7 +41,9 @@ const EditorSection = () => {
     sharpen: 0,
   });
 
-  const API_BASE_URL = "http://localhost:8000/api/media";
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
+    ? `${process.env.NEXT_PUBLIC_API_URL}/media`
+    : "http://localhost:8000/api/media";
 
   // Step 1: File Upload
   const onDrop = useCallback(async (acceptedFiles) => {
