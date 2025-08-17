@@ -279,10 +279,10 @@ const ImageModifier = () => {
       </div>
 
       {/* Navigation */}
-      <NavigationBar />
+      <NavigationBar scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
-      <HeroSection stats={stats} />
+      <HeroSection stats={stats} scrollToSection={scrollToSection} />
 
       {/* Features Section */}
       <FeaturesSection
@@ -636,7 +636,7 @@ const ImageModifier = () => {
                       ) : (
                         <>
                           <Play className="w-5 h-5 inline mr-3" />
-                          Apply Transform
+                          Transform Original image
                         </>
                       )}
                     </motion.button>
