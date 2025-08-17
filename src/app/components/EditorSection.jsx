@@ -287,7 +287,7 @@ const EditorSection = () => {
               <div className="bg-white/10  rounded-3xl shadow-2xl p-12 border border-white/20">
                 <div
                   {...getRootProps()}
-                  className={`border-2 border-dashed rounded-2xl p-16 text-center cursor-pointer transition-all duration-300 ${
+                  className={`border-2 border-dashed rounded-2xl p-8 lg:p-16 text-center cursor-pointer transition-all duration-300 ${
                     isDragActive
                       ? "border-blue-400 bg-blue-500/10 scale-105"
                       : "border-white/30 hover:border-blue-400 hover:bg-white/5"
@@ -309,16 +309,69 @@ const EditorSection = () => {
                     </p>
                   ) : loading ? (
                     <div className="bg-white/10  rounded-3xl p-8 text-center border border-white/20">
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      >
-                        <Loader2 className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-                      </motion.div>
+                      <div className="relative w-24 h-24 mx-auto mb-6">
+                        <motion.div
+                          className="absolute inset-0 border-4 border-transparent border-t-blue-400 border-r-purple-400 rounded-full"
+                          animate={{ rotate: 360 }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                        />
+
+                        {/* Middle pulsing ring */}
+                        <motion.div
+                          className="absolute inset-2 border-2 border-transparent border-t-purple-300 border-l-pink-300 rounded-full"
+                          animate={{ rotate: -360 }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                        />
+
+                        {/* Inner animated dots */}
+                        <div className="absolute inset-4 flex items-center justify-center">
+                          <div className="relative w-8 h-8">
+                            {[0, 1, 2].map((i) => (
+                              <motion.div
+                                key={i}
+                                className="absolute w-2 h-2 bg-blue-300 rounded-full"
+                                style={{
+                                  top: "50%",
+                                  left: "50%",
+                                  transformOrigin: "4px 0px",
+                                }}
+                                animate={{
+                                  rotate: [0, 120, 240, 360],
+                                  scale: [0.8, 1.2, 0.8],
+                                }}
+                                transition={{
+                                  duration: 1.2,
+                                  repeat: Infinity,
+                                  delay: i * 0.4,
+                                  ease: "easeInOut",
+                                }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Central glowing core */}
+                        <motion.div
+                          className="absolute inset-6 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full"
+                          animate={{
+                            scale: [0.8, 1.2, 0.8],
+                            opacity: [0.6, 1, 0.6],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      </div>
                       <p className="text-xl text-white font-semibold">
                         {selectedOperation === "optimize" &&
                           "Optimizing your image..."}
@@ -331,10 +384,10 @@ const EditorSection = () => {
                     </div>
                   ) : (
                     <div>
-                      <p className="text-2xl text-white mb-4">
+                      <p className="text-lg md:text-2xl text-white mb-4">
                         Drag & drop an image here, or click to select
                       </p>
-                      <p className="text-blue-200">
+                      <p className="text-xs md:text-lg text-blue-200">
                         Supports: JPEG, PNG, WebP, GIF • Max size: 10MB
                       </p>
                     </div>
@@ -700,7 +753,7 @@ const EditorSection = () => {
                                   `${selectedOperation}-image`
                                 )
                               }
-                              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 flex items-center"
+                              className="bg-gradient-to-r from-green-500 to-emerald-600 text-sm md:text-xl text-white px-3 py-2 md:px-6 md:py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 flex items-center"
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                             >
