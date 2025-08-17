@@ -181,12 +181,12 @@ const ImageModifier = () => {
       description:
         "Remove backgrounds instantly with precision using state-of-the-art machine learning.",
     },
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Color Enhancement",
-      description:
-        "Enhance colors, adjust brightness, contrast, and saturation with professional tools.",
-    },
+    // {
+    //   icon: <Palette className="w-8 h-8" />,
+    //   title: "Color Enhancement",
+    //   description:
+    //     "Enhance colors, adjust brightness, contrast, and saturation with professional tools.",
+    // },
     {
       icon: <Crop className="w-8 h-8" />,
       title: "Smart Resizing",
@@ -199,12 +199,12 @@ const ImageModifier = () => {
       description:
         "Convert between multiple formats including WebP, AVIF, PNG, JPG, and more.",
     },
-    {
-      icon: <Layers className="w-8 h-8" />,
-      title: "Batch Processing",
-      description:
-        "Process multiple images simultaneously with consistent transformations.",
-    },
+    // {
+    //   icon: <Layers className="w-8 h-8" />,
+    //   title: "Batch Processing",
+    //   description:
+    //     "Process multiple images simultaneously with consistent transformations.",
+    // },
   ];
 
   const stats = [
