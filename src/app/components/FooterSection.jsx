@@ -25,35 +25,6 @@ const FooterSection = () => (
         <p className="text-blue-100 mb-8 text-lg">
           Transform your images with the power of AI
         </p>
-        <div className="flex justify-center space-x-8 mb-8">
-          <a
-            href="#"
-            className="text-blue-100 hover:text-white transition-colors"
-          >
-            Privacy
-          </a>
-          <a
-            href="#"
-            className="text-blue-100 hover:text-white transition-colors"
-          >
-            Terms
-          </a>
-          <a
-            href="#"
-            className="text-blue-100 hover:text-white transition-colors"
-          >
-            Support
-          </a>
-          <a
-            href="#"
-            className="text-blue-100 hover:text-white transition-colors"
-          >
-            API
-          </a>
-        </div>
-        <div className="text-blue-200 text-sm">
-          © 2024 imageKFormat. All rights reserved.
-        </div>
       </div>
     </div>
   </footer>

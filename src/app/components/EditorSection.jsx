@@ -244,22 +244,7 @@ const EditorSection = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black/50  z-50 flex items-center justify-center"
-    >
-      <div className="bg-white/10  rounded-3xl p-8 text-center border border-white/20">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        >
-          <Loader2 className="w-16 h-16 text-blue-400 mx-auto mb-4" />
-        </motion.div>
-        <p className="text-xl text-white font-semibold">
-          {selectedOperation === "optimize" && "Optimizing your image..."}
-          {selectedOperation === "remove-bg" && "Removing background..."}
-          {selectedOperation === "transform" && "Applying transformations..."}
-          {!selectedOperation && "Processing..."}
-        </p>
-      </div>
-    </motion.div>
+    ></motion.div>
   );
 
   return (
@@ -285,7 +270,7 @@ const EditorSection = () => {
         <StepIndicator />
 
         {/* Loading Overlay */}
-        <AnimatePresence>{loading && <LoadingOverlay />}</AnimatePresence>
+        {/* <AnimatePresence>{loading && <LoadingOverlay />}</AnimatePresence> */}
 
         {/* Step Content */}
         <AnimatePresence mode="wait">
@@ -309,17 +294,41 @@ const EditorSection = () => {
                   }`}
                 >
                   <input {...getInputProps()} />
-                  <motion.div
-                    animate={isDragActive ? { scale: 1.1 } : { scale: 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ImageIcon className="w-20 h-20 mx-auto mb-6 text-blue-300" />
-                  </motion.div>
+                  {!loading && (
+                    <motion.div
+                      animate={isDragActive ? { scale: 1.1 } : { scale: 1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ImageIcon className="w-20 h-20 mx-auto mb-6 text-blue-300" />
+                    </motion.div>
+                  )}
 
                   {isDragActive ? (
                     <p className="text-2xl text-blue-200">
                       Drop your image here!
                     </p>
+                  ) : loading ? (
+                    <div className="bg-white/10  rounded-3xl p-8 text-center border border-white/20">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      >
+                        <Loader2 className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                      </motion.div>
+                      <p className="text-xl text-white font-semibold">
+                        {selectedOperation === "optimize" &&
+                          "Optimizing your image..."}
+                        {selectedOperation === "remove-bg" &&
+                          "Removing background..."}
+                        {selectedOperation === "transform" &&
+                          "Applying transformations..."}
+                        {!selectedOperation && "Processing..."}
+                      </p>
+                    </div>
                   ) : (
                     <div>
                       <p className="text-2xl text-white mb-4">
