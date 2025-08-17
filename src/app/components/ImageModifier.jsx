@@ -23,6 +23,13 @@ import {
   Wand2,
   Filter,
 } from "lucide-react";
+import HeroSection from "./HeroSection";
+import FeaturesSection from "./FeaturesSection";
+import EditorSection from "./EditorSection";
+import StatsSection from "./StatsSection";
+import AboutSection from "./AboutSection";
+import FooterSection from "./FooterSection";
+import NavigationBar from "./NavigationBar";
 
 const ImageModifier = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -272,173 +279,17 @@ const ImageModifier = () => {
       </div>
 
       {/* Navigation */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-lg border-b border-white/20"
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <motion.div
-              className="flex items-center space-x-3"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-xl">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-xl opacity-30 blur-sm"
-                />
-              </div>
-              <span className="text-2xl font-bold text-white">
-                imageKFormat
-              </span>
-            </motion.div>
-
-            <div className="hidden md:flex space-x-8">
-              {["Hero", "Features", "Editor", "Stats", "About"].map(
-                (item, index) => (
-                  <motion.button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className="text-white/80 hover:text-white transition-colors"
-                    whileHover={{ y: -2 }}
-                    whileTap={{ y: 0 }}
-                  >
-                    {item}
-                  </motion.button>
-                )
-              )}
-            </div>
-          </div>
-        </div>
-      </motion.nav>
+      <NavigationBar />
 
       {/* Hero Section */}
-      <section id="hero" className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
-              Transform Your
-              <motion.span
-                className="block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Images
-              </motion.span>
-            </h1>
-            <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Professional image processing powered by AI. Optimize, enhance,
-              and transform your images with cutting-edge technology in seconds.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-16"
-          >
-            <motion.button
-              onClick={() => scrollToSection("editor")}
-              className="group bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-12 py-6 rounded-2xl text-xl font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Creating
-              <ArrowRight className="inline-block ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="relative"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-3xl blur-3xl" />
-            <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 max-w-4xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                    className="text-center"
-                  >
-                    <div className="text-blue-300 mb-2 flex justify-center">
-                      {stat.icon}
-                    </div>
-                    <div className="text-3xl font-bold text-white mb-1">
-                      {stat.number}
-                    </div>
-                    <div className="text-blue-200 text-sm">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection stats={stats} />
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold text-white mb-6">
-              Powerful Features
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Everything you need to create, enhance, and optimize images with
-              professional results
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300"
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className="text-blue-300 mb-4 group-hover:text-blue-200 transition-colors">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-blue-100 leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <FeaturesSection
+        features={features}
+        containerVariants={containerVariants}
+        itemVariants={itemVariants}
+      />
 
       {/* Editor Section */}
       <section id="editor" className="py-20 px-6 relative z-10">
@@ -541,7 +392,7 @@ const ImageModifier = () => {
                         Drag & drop an image here, or click to select
                       </p>
                       <p className="text-blue-200">
-                        Supports: JPEG, PNG, WebP, GIF • Max size: 50MB
+                        Supports: JPEG, PNG, WebP, GIF • Max size: 10MB
                       </p>
                     </div>
                   )}
@@ -615,7 +466,7 @@ const ImageModifier = () => {
                         <motion.button
                           onClick={handleRemoveBackground}
                           disabled={loading}
-                          className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 px-6 rounded-xl font-medium transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-purple-500/25"
+                          className="w-full flex items-center bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 px-6 rounded-xl font-medium transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-purple-500/25"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -875,203 +726,13 @@ const ImageModifier = () => {
       </section>
 
       {/* Stats Section */}
-      <section id="stats" className="py-20 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold text-white mb-6">
-              Trusted by Millions
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Join the community of creators, designers, and businesses who
-              trust imageKFormat
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300"
-                whileHover={{ y: -5, scale: 1.02 }}
-              >
-                <div className="text-blue-300 mb-4 flex justify-center">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-blue-200">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsSection stats={stats} />
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-bold text-white mb-8">
-                The Future of
-                <span className="block text-transparent bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text">
-                  Image Processing
-                </span>
-              </h2>
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                imageKFormat combines cutting-edge AI technology with intuitive
-                design to deliver professional-grade image processing tools that
-                anyone can use. Our platform processes over 10 million images
-                monthly, helping creators and businesses optimize their visual
-                content.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center text-blue-100">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-4"></div>
-                  Advanced AI-powered image optimization
-                </div>
-                <div className="flex items-center text-blue-100">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-4"></div>
-                  Support for 50+ image formats
-                </div>
-                <div className="flex items-center text-blue-100">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-4"></div>
-                  Enterprise-grade security and privacy
-                </div>
-                <div className="flex items-center text-blue-100">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-4"></div>
-                  99.9% uptime guarantee
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-6 text-center">
-                    <Upload className="w-8 h-8 text-white mx-auto mb-3" />
-                    <div className="text-white font-semibold">Upload</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-6 text-center">
-                    <Wand2 className="w-8 h-8 text-white mx-auto mb-3" />
-                    <div className="text-white font-semibold">Transform</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 text-center">
-                    <Zap className="w-8 h-8 text-white mx-auto mb-3" />
-                    <div className="text-white font-semibold">Optimize</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-6 text-center">
-                    <Download className="w-8 h-8 text-white mx-auto mb-3" />
-                    <div className="text-white font-semibold">Download</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating elements */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-blue-400 rounded-full opacity-20 blur-xl"
-              />
-              <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -bottom-4 -left-4 w-20 h-20 bg-indigo-400 rounded-full opacity-20 blur-xl"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* Footer */}
-      <footer className="py-16 px-6 border-t border-white/20 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <motion.div
-              className="flex items-center justify-center space-x-3 mb-8"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-xl">
-                  <Sparkles className="w-7 h-7 text-white" />
-                </div>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-xl opacity-30 blur-sm"
-                />
-              </div>
-              <span className="text-3xl font-bold text-white">
-                imageKFormat
-              </span>
-            </motion.div>
-
-            <p className="text-blue-100 mb-8 text-lg">
-              Transform your images with the power of AI
-            </p>
-
-            <div className="flex justify-center space-x-8 mb-8">
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition-colors"
-              >
-                Privacy
-              </a>
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition-colors"
-              >
-                Terms
-              </a>
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition-colors"
-              >
-                Support
-              </a>
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition-colors"
-              >
-                API
-              </a>
-            </div>
-
-            <div className="text-blue-200 text-sm">
-              © 2024 imageKFormat. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <FooterSection />
     </div>
   );
 };
