@@ -11,7 +11,7 @@ import {
   Zap,
   Palette,
   Crop,
-  Sparkles,
+  Image,
   ArrowRight,
   ArrowLeft,
   Play,
@@ -284,7 +284,7 @@ const EditorSection = () => {
               transition={{ duration: 0.5 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="bg-white/10  rounded-3xl shadow-2xl p-12 border border-white/20">
+              <div className="bg-white/10  rounded-3xl shadow-2xl p-0 md:p-12 md:border border-white/20">
                 <div
                   {...getRootProps()}
                   className={`border-2 border-dashed rounded-2xl p-8 lg:p-16 text-center cursor-pointer transition-all duration-300 ${
@@ -308,7 +308,7 @@ const EditorSection = () => {
                       Drop your image here!
                     </p>
                   ) : loading ? (
-                    <div className="bg-white/10  rounded-3xl p-8 text-center border border-white/20">
+                    <div className="bg-transparent rounded-3xl p-8 text-center">
                       <div className="relative w-24 h-24 mx-auto mb-6">
                         <motion.div
                           className="absolute inset-0 border-4 border-transparent border-t-blue-400 border-r-purple-400 rounded-full"
@@ -631,7 +631,7 @@ const EditorSection = () => {
                               }`}
                             >
                               {transformations.enhance && (
-                                <Sparkles className="w-3 h-3 text-white absolute inset-0.5" />
+                                <Image className="w-3 h-3 text-white absolute inset-0.5" />
                               )}
                             </div>
                             <span className="ml-3 text-white">
@@ -672,7 +672,7 @@ const EditorSection = () => {
                         <div>
                           <h4 className="font-semibold mb-4 text-white text-lg flex items-center justify-between">
                             <span className="flex items-center">
-                              <Sparkles className="w-5 h-5 mr-2 text-blue-300" />
+                              <Image className="w-5 h-5 mr-2 text-blue-300" />
                               Transformed
                             </span>
                             {transformedImage && (
@@ -739,7 +739,7 @@ const EditorSection = () => {
                       <div>
                         <h4 className="font-semibold mb-4 text-white text-xl flex items-center justify-between">
                           <span className="flex items-center">
-                            <Sparkles className="w-6 h-6 mr-3 text-blue-300" />
+                            <Image className="w-6 h-6 mr-3 text-blue-300" />
                             {selectedOperation === "optimize"
                               ? "Optimized"
                               : "Background Removed"}

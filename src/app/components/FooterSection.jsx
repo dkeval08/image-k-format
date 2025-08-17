@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Image } from "lucide-react";
 
 const FooterSection = () => (
   <footer className="py-16 px-6 border-t border-white/20 relative z-10">
@@ -12,7 +12,7 @@ const FooterSection = () => (
         >
           <div className="relative">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-xl">
-              <Sparkles className="w-7 h-7 text-white" />
+              <Image className="w-7 h-7 text-white" />
             </div>
             <motion.div
               animate={{ rotate: 360 }}

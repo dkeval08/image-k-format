@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Upload, Wand2, Zap, Download, Sparkles } from "lucide-react";
+import { Upload, Wand2, Zap, Download, Image } from "lucide-react";
 
 const AboutSection = () => (
   <section id="about" className="py-20 px-6 relative z-10">
