@@ -243,9 +243,9 @@ const EditorSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-black/50  z-50 flex items-center justify-center"
     >
-      <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 text-center border border-white/20">
+      <div className="bg-white/10  rounded-3xl p-8 text-center border border-white/20">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -299,7 +299,7 @@ const EditorSection = () => {
               transition={{ duration: 0.5 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-12 border border-white/20">
+              <div className="bg-white/10  rounded-3xl shadow-2xl p-12 border border-white/20">
                 <div
                   {...getRootProps()}
                   className={`border-2 border-dashed rounded-2xl p-16 text-center cursor-pointer transition-all duration-300 ${
@@ -347,7 +347,7 @@ const EditorSection = () => {
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Image Preview */}
-                <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
+                <div className="bg-white/10  rounded-3xl shadow-2xl p-8 border border-white/20">
                   <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
                     <ImageIcon className="w-6 h-6 mr-3 text-blue-300" />
                     Uploaded Image
@@ -384,7 +384,7 @@ const EditorSection = () => {
                 </div>
 
                 {/* Operations */}
-                <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
+                <div className="bg-white/10  rounded-3xl shadow-2xl p-8 border border-white/20">
                   <h3 className="text-2xl font-bold text-white mb-6">
                     Choose an Operation
                   </h3>
@@ -444,7 +444,7 @@ const EditorSection = () => {
                 <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
                   {/* Controls */}
                   <div className="xl:col-span-1">
-                    <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-6 border border-white/20 sticky top-8">
+                    <div className="bg-white/10  rounded-3xl shadow-2xl p-6 border border-white/20 sticky top-8">
                       <h3 className="text-xl font-bold mb-6 text-white">
                         Transform Settings
                       </h3>
@@ -462,7 +462,7 @@ const EditorSection = () => {
                                 format: e.target.value,
                               }))
                             }
-                            className="w-full p-3 bg-white/10 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
+                            className="w-full p-3 bg-white/10 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-blue-500 "
                           >
                             <option value="" className="bg-gray-800">
                               Keep Original
@@ -494,7 +494,7 @@ const EditorSection = () => {
                                 quality: e.target.value,
                               }))
                             }
-                            className="w-full p-3 bg-white/10 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
+                            className="w-full p-3 bg-white/10 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-blue-500 "
                           >
                             <option value="auto" className="bg-gray-800">
                               Auto
@@ -530,7 +530,7 @@ const EditorSection = () => {
                                   width: value,
                                 }));
                               }}
-                              className="p-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-300 focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
+                              className="p-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-300 focus:ring-2 focus:ring-blue-500 "
                             />
                             <input
                               type="text"
@@ -543,7 +543,7 @@ const EditorSection = () => {
                                   height: value,
                                 }));
                               }}
-                              className="p-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-300 focus:ring-2 focus:ring-blue-500 backdrop-blur-sm"
+                              className="p-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-300 focus:ring-2 focus:ring-blue-500 "
                             />
                           </div>
                         </div>
@@ -594,7 +594,7 @@ const EditorSection = () => {
 
                   {/* Image Comparison */}
                   <div className="xl:col-span-3">
-                    <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-6 border border-white/20">
+                    <div className="bg-white/10  rounded-3xl shadow-2xl p-6 border border-white/20">
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         <div>
                           <h4 className="font-semibold mb-6 text-white text-lg flex items-center">
@@ -661,7 +661,7 @@ const EditorSection = () => {
               ) : (
                 // Simple Preview for Optimize/Remove BG
                 <div className="max-w-6xl mx-auto">
-                  <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
+                  <div className="bg-white/10  rounded-3xl shadow-2xl p-8 border border-white/20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                       <div>
                         <h4 className="font-semibold mb-10 text-white text-xl flex items-center">

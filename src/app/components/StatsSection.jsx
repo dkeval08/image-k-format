@@ -27,7 +27,7 @@ const StatsSection = ({ stats }) => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="text-center bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            className="text-center bg-white/10  rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300"
             whileHover={{ y: -5, scale: 1.02 }}
           >
             <div className="text-blue-300 mb-4 flex justify-center">

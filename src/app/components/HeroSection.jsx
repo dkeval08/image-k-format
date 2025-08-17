@@ -48,7 +48,7 @@ const HeroSection = ({ stats, scrollToSection }) => (
         className="relative"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-3xl blur-3xl" />
-        <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 max-w-4xl mx-auto">
+        <div className="relative bg-white/10  rounded-3xl p-8 border border-white/20 max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div

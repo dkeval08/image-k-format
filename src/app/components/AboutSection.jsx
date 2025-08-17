@@ -51,7 +51,7 @@ const AboutSection = () => (
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+          <div className="relative bg-white/10  rounded-3xl p-8 border border-white/20">
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-6 text-center">
                 <Upload className="w-8 h-8 text-white mx-auto mb-3" />

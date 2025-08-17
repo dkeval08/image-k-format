@@ -30,7 +30,7 @@ const FeaturesSection = ({ features, containerVariants, itemVariants }) => (
           <motion.div
             key={index}
             variants={itemVariants}
-            className="group bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300"
+            className="group bg-white/10  rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300"
             whileHover={{ y: -10, scale: 1.02 }}
           >
             <div className="text-blue-300 mb-4 group-hover:text-blue-200 transition-colors">
