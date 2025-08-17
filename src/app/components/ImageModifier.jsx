@@ -52,7 +52,9 @@ const ImageModifier = () => {
   });
 
   // Backend URL - Update this to match your backend
-  const API_BASE_URL = "http://localhost:8000/api/media";
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
+    ? `${process.env.NEXT_PUBLIC_API_URL}/media`
+    : "http://localhost:8000/api/media";
 
   const onDrop = useCallback(async (acceptedFiles) => {
     const file = acceptedFiles[0];
