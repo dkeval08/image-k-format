@@ -20,7 +20,9 @@ const FooterSection = () => (
               className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-xl opacity-30 blur-sm"
             />
           </div>
-          <span className="text-3xl font-bold text-white">imageKFormat</span>
+          <span className="text-3xl font-bold bg-gradient-to-br from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+            imageKFormat
+          </span>
         </motion.div>
         <p className="text-blue-100 mb-8 text-lg">
           Transform your images with the power of AI

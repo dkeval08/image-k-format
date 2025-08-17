@@ -20,7 +20,7 @@ const NavigationBar = ({ scrollToSection }) => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 w-full z-50 bg-blue-500 border-b border-white/20"
+      className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/20"
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -33,7 +33,9 @@ const NavigationBar = ({ scrollToSection }) => {
                 <Image className="w-6 h-6 text-white" />
               </div>
             </div>
-            <span className="text-2xl font-bold text-white">imageKFormat</span>
+            <span className="font-bold text-xl bg-gradient-to-br from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+              imageKFormat
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}
