@@ -33,9 +33,9 @@ export const metadata = {
     apple: "/favicon.ico", // optional, for iOS
   },
   openGraph: {
-    title: "AI KGenesis - AI Image Generator",
+    title: "ImageKFormat - Free Online Image Format Converter",
     description:
-      "Create, save, and share stunning AI-generated images instantly. No login required – simple, fast, and creative.",
+      "Convert images between formats instantly. Support for JPEG, PNG, WebP, AVIF, and more. Fast, secure, and completely free image conversion tool.",
     url: "https://ai-k-format.vercel.app",
     siteName: "AI KGenesis",
     images: [
