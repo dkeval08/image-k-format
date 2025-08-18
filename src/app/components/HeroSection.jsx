@@ -196,14 +196,13 @@ const HeroSection = ({ scrollToSection }) => {
 
             {/* Right Side - Enhanced Animation */}
             <div
-              className={`flex-1 flex justify-center lg:justify-end ${
+              className={`flex-1 flex justify-center z-100 lg:justify-end ${
                 isVisible ? "slide-in-right" : "opacity-0"
               }`}
             >
               <div className="relative">
                 <EnhancedAnimation />
                 {/* Animated glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl pulse-glow-1 -z-10 scale-150" />
               </div>
             </div>
           </div>
